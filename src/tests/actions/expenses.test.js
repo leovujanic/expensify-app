@@ -69,6 +69,12 @@ test('Should add expense to database and store', (done) => {
 
 test('Should add expense with defaults to database and store', () => {
 	const store = createMockStore({});
+	const expenseData = {
+		description: '',
+		note: '',
+		amount: 0,
+		createdAt: 0,
+	};
 
 	store.dispatch(startAddExpense({})).then(() => {
 		const actions = store.getActions();
@@ -76,10 +82,7 @@ test('Should add expense with defaults to database and store', () => {
 			type: 'ADD_EXPENSE',
 			expense: {
 				id: expect.any(String),
-				description: '',
-				note: '',
-				amount: 0,
-				createdAt: 0,
+				...expenseData,
 			}
 		});
 
