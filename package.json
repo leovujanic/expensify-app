@@ -46,6 +46,7 @@
     "webpack": "^3.1.0"
   },
   "devDependencies": {
+    "@types/redux-mock-store": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-to-json": "^3.0.1",
