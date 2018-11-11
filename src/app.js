@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import AppRouter from "./routers/AppRouter"
 import configureStore from './store/configureStore';
-import {addExpense} from './actions/expenses'
+import {startSetExpenses} from './actions/expenses'
 import {setTextFilter} from './actions/filters'
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
@@ -13,24 +13,6 @@ import './firebase/firebase';
 
 const store = configureStore();
 
-store.dispatch(addExpense({
-	description: 'Rent',
-	amount: 100,
-	createdAt: 100,
-}));
-store.dispatch(addExpense({
-	description: 'Coffe',
-	amount: 300,
-	createdAt: 200,
-}));
-
-store.dispatch(addExpense({
-	description: 'Gas',
-	amount: 50,
-	createdAt: 500,
-}));
-
-
 const appRoot = document.getElementById('app');
 
 const jsx = (
@@ -39,7 +21,10 @@ const jsx = (
 	</Provider>
 );
 
-ReactDOM.render(
-	jsx,
-	appRoot
-);
+store.dispatch(startSetExpenses()).then(() => {
+	ReactDOM.render(
+		jsx,
+		appRoot
+	);
+});
+
