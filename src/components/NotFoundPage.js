@@ -3,10 +3,7 @@ import React from "react";
 
 const NotFoundPage = () => (
 	<div>
-		<p>
-			404!
-			<Link to="/">Go Home</Link>
-		</p>
+		404 - <Link to="/">Go home</Link>
 	</div>
 );
 
